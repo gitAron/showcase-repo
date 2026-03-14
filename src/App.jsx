@@ -66,6 +66,7 @@ const styles = {
     backgroundPosition: 'center',
     filter: 'brightness(0.40)',
     zIndex: 0,
+    pointerEvents: 'none',
   },
   heroLeft: {
     flex: '1',
