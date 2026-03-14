@@ -45,8 +45,27 @@ const styles = {
   },
   hero: {
     background: 'linear-gradient(135deg, #f9ede9 0%, #f3e0e8 50%, #ede8f5 100%)',
-    padding: '110px 48px 90px',
-    textAlign: 'center',
+    padding: '80px 48px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '64px',
+    maxWidth: '1100px',
+    margin: '0 auto',
+  },
+  heroWrap: {
+    background: 'linear-gradient(135deg, #f9ede9 0%, #f3e0e8 50%, #ede8f5 100%)',
+    padding: '0',
+  },
+  heroLeft: {
+    flex: '1',
+    textAlign: 'left',
+  },
+  heroImg: {
+    flex: '1',
+    borderRadius: '24px',
+    overflow: 'hidden',
+    maxHeight: '480px',
+    boxShadow: '0 20px 60px rgba(122,62,72,0.15)',
   },
   heroEyebrow: {
     fontSize: '0.75rem',
@@ -70,13 +89,13 @@ const styles = {
     lineHeight: 1.8,
     color: '#6b4555',
     maxWidth: '520px',
-    margin: '0 auto 40px',
+    margin: '0 0 40px',
     fontStyle: 'italic',
   },
   heroBtns: {
     display: 'flex',
     gap: '16px',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     flexWrap: 'wrap',
   },
   btnPrimary: {
@@ -437,17 +456,24 @@ function App() {
       </nav>
 
       {/* Hero */}
+      <div style={styles.heroWrap}>
       <section style={styles.hero}>
-        <p style={styles.heroEyebrow}>Gastroenterologie &amp; Innere Medizin · Berlin Mitte</p>
-        <h1 style={styles.heroTitle}>Ihre Gesundheit liegt uns am Herzen.</h1>
-        <p style={styles.heroSubtitle}>
-          Wir begleiten Sie mit Empathie, Expertise und moderner Medizin durch jeden Schritt Ihrer Behandlung.
-        </p>
-        <div style={styles.heroBtns}>
-          <button style={styles.btnPrimary} onClick={() => scrollTo('contact')}>Termin vereinbaren</button>
-          <button style={styles.btnOutline} onClick={() => scrollTo('services')}>Unsere Leistungen</button>
+        <div style={styles.heroLeft}>
+          <p style={styles.heroEyebrow}>Gastroenterologie &amp; Innere Medizin · Berlin Mitte</p>
+          <h1 style={styles.heroTitle}>Ihre Gesundheit liegt uns am Herzen.</h1>
+          <p style={styles.heroSubtitle}>
+            Wir begleiten Sie mit Empathie, Expertise und moderner Medizin durch jeden Schritt Ihrer Behandlung.
+          </p>
+          <div style={styles.heroBtns}>
+            <button style={styles.btnPrimary} onClick={() => scrollTo('contact')}>Termin vereinbaren</button>
+            <button style={styles.btnOutline} onClick={() => scrollTo('services')}>Unsere Leistungen</button>
+          </div>
+        </div>
+        <div style={styles.heroImg}>
+          <img src="/showcase-repo/hero.jpg" alt="Praxis Katya" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         </div>
       </section>
+      </div>
 
       {/* Divider */}
       <div style={styles.divider}>
