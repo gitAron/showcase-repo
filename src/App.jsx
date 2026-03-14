@@ -426,7 +426,7 @@ function App() {
     <div style={styles.root}>
       {/* Navigation */}
       <nav style={styles.nav}>
-        <span style={styles.navLogo}>Praxis Hoffmann &amp; Brandt</span>
+        <span style={styles.navLogo}>Praxis Katya</span>
         <ul style={styles.navLinks}>
           {[['Leistungen', 'services'], ['Über uns', 'about'], ['Team', 'team'], ['Kontakt', 'contact']].map(([label, id]) => (
             <li key={id}>
@@ -581,7 +581,7 @@ function App() {
 
       {/* Footer */}
       <footer style={styles.footer}>
-        <p>© 2026 Gemeinschaftspraxis Hoffmann &amp; Brandt · Gastroenterologie &amp; Innere Medizin · Berlin</p>
+        <p>© 2026 Praxis Katya · Gastroenterologie &amp; Innere Medizin · Berlin</p>
         <p style={{ marginTop: '8px', opacity: 0.6 }}>Impressum · Datenschutz · Barrierefreiheit</p>
       </footer>
     </div>
