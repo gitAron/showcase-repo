@@ -44,17 +44,28 @@ const styles = {
     transition: 'color 0.2s',
   },
   hero: {
-    background: 'linear-gradient(135deg, #f9ede9 0%, #f3e0e8 50%, #ede8f5 100%)',
-    padding: '80px 48px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '64px',
+    position: 'relative',
+    zIndex: 1,
+    padding: '100px 48px',
     maxWidth: '1100px',
     margin: '0 auto',
+    width: '100%',
   },
   heroWrap: {
-    background: 'linear-gradient(135deg, #f9ede9 0%, #f3e0e8 50%, #ede8f5 100%)',
-    padding: '0',
+    position: 'relative',
+    overflow: 'hidden',
+    minHeight: '600px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  heroBg: {
+    position: 'absolute',
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundImage: 'url(/showcase-repo/hero.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    filter: 'brightness(0.40)',
+    zIndex: 0,
   },
   heroLeft: {
     flex: '1',
@@ -71,23 +82,22 @@ const styles = {
     fontSize: '0.75rem',
     letterSpacing: '0.25em',
     textTransform: 'uppercase',
-    color: '#a0607a',
+    color: '#f0c8d8',
     marginBottom: '20px',
   },
   heroTitle: {
     fontSize: '3.2rem',
     fontWeight: '400',
     lineHeight: 1.25,
-    color: '#3d1f2f',
+    color: '#ffffff',
     margin: '0 0 24px',
     maxWidth: '700px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    textShadow: '0 2px 12px rgba(0,0,0,0.4)',
   },
   heroSubtitle: {
     fontSize: '1.05rem',
     lineHeight: 1.8,
-    color: '#6b4555',
+    color: '#f0e0e6',
     maxWidth: '520px',
     margin: '0 0 40px',
     fontStyle: 'italic',
@@ -112,8 +122,8 @@ const styles = {
   },
   btnOutline: {
     background: 'transparent',
-    color: '#7a3e48',
-    border: '1.5px solid #7a3e48',
+    color: '#fff',
+    border: '1.5px solid #fff',
     padding: '14px 36px',
     borderRadius: '30px',
     fontSize: '0.85rem',
@@ -412,6 +422,11 @@ const services = [
 
 const team = [
   {
+    name: 'Dr. med. Katya',
+    role: 'Fachärztin für Gastroenterologie & Innere Medizin',
+    bio: 'Praxisinhaberin und erfahrene Gastroenterologin. Ihr Fokus liegt auf modernster Endoskopie und der ganzheitlichen Betreuung ihrer Patientinnen und Patienten.',
+  },
+  {
     name: 'Dr. med. Clara Hoffmann',
     role: 'Fachärztin für Gastroenterologie',
     bio: 'Spezialisierung auf chronisch entzündliche Darmerkrankungen und endoskopische Diagnostik. Über 15 Jahre Erfahrung.',
@@ -457,22 +472,20 @@ function App() {
 
       {/* Hero */}
       <div style={styles.heroWrap}>
-      <section style={styles.hero}>
-        <div style={styles.heroLeft}>
-          <p style={styles.heroEyebrow}>Gastroenterologie &amp; Innere Medizin · Berlin Mitte</p>
-          <h1 style={styles.heroTitle}>Ihre Gesundheit liegt uns am Herzen.</h1>
-          <p style={styles.heroSubtitle}>
-            Wir begleiten Sie mit Empathie, Expertise und moderner Medizin durch jeden Schritt Ihrer Behandlung.
-          </p>
-          <div style={styles.heroBtns}>
-            <button style={styles.btnPrimary} onClick={() => scrollTo('contact')}>Termin vereinbaren</button>
-            <button style={styles.btnOutline} onClick={() => scrollTo('services')}>Unsere Leistungen</button>
+        <div style={styles.heroBg} />
+        <section style={styles.hero}>
+          <div style={styles.heroLeft}>
+            <p style={styles.heroEyebrow}>Gastroenterologie &amp; Innere Medizin · Hannover</p>
+            <h1 style={styles.heroTitle}>Ihre Gesundheit liegt uns am Herzen.</h1>
+            <p style={styles.heroSubtitle}>
+              Wir begleiten Sie mit Empathie, Expertise und moderner Medizin durch jeden Schritt Ihrer Behandlung.
+            </p>
+            <div style={styles.heroBtns}>
+              <button style={styles.btnPrimary} onClick={() => scrollTo('contact')}>Termin vereinbaren</button>
+              <button style={styles.btnOutline} onClick={() => scrollTo('services')}>Unsere Leistungen</button>
+            </div>
           </div>
-        </div>
-        <div style={styles.heroImg}>
-          <img src="/showcase-repo/hero.jpg" alt="Praxis Katya" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        </div>
-      </section>
+        </section>
       </div>
 
       {/* Divider */}
@@ -550,7 +563,7 @@ function App() {
       <div style={styles.infoStrip}>
         {[
           ['Sprechzeiten', 'Mo – Fr: 08:00 – 17:00 Uhr\nTermine nach Vereinbarung'],
-          ['Adresse', 'Unter den Linden 42\n10117 Berlin Mitte'],
+          ['Adresse', 'Auf dem Loh\n30167 Hannover'],
           ['Telefon & E-Mail', '+49 30 123 456 78\npraxis@hoffmann-brandt.de'],
           ['Kassenärztlich', 'Alle gesetzlichen\nKrankenkassen'],
         ].map(([label, value]) => (
@@ -607,7 +620,7 @@ function App() {
 
       {/* Footer */}
       <footer style={styles.footer}>
-        <p>© 2026 Praxis Katya · Gastroenterologie &amp; Innere Medizin · Berlin</p>
+        <p>© 2026 Praxis Katya · Gastroenterologie &amp; Innere Medizin · Hannover</p>
         <p style={{ marginTop: '8px', opacity: 0.6 }}>Impressum · Datenschutz · Barrierefreiheit</p>
       </footer>
     </div>
